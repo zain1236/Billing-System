@@ -8,6 +8,7 @@ import NewInvoice from "./Component/Invoices/NewInvoice";
 import AllService from "./Component/Service/AllService";
 import NewService from "./Component/Service/NewService";
 import EditService from "./Component/Service/EditService";
+import ShowInvoice from "./Component/Invoices/ShowInvoice";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/services/:id" element={<EditService />} />
 
         <Route path="/invoice/newInvoice" element={<NewInvoice />} />
+        <Route path="/invoice/showInvoice" element={<ShowInvoice />} />
       </Routes>
     </div>
   );

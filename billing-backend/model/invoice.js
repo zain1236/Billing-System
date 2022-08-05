@@ -20,7 +20,7 @@ const Invoice = sequelize.define(
       allowNull: false,
     },
 
-    billing_Period: {
+    billing_period: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -28,6 +28,15 @@ const Invoice = sequelize.define(
     forignRate: {
       type: DataTypes.BIGINT,
       allowNull: true,
+    },
+
+    company_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
+    customer_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
     },
   },
   {
