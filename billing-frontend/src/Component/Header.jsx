@@ -28,6 +28,9 @@ const Header = () => {
         <li className="mr-4">
           <Link to="/invoice/newInvoice"> New Invoice</Link>
         </li>
+        <li className="mr-4">
+          <Link to="/invoice/allInvoices"> All Invoice</Link>
+        </li>
       </ul>
     </>
   );

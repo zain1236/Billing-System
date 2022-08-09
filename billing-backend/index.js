@@ -3,6 +3,8 @@ const IndexRoute = require("./Routes");
 require("./config/db");
 const cors = require("cors");
 
+require("dotenv").config();
+
 const app = express();
 
 app.use(express.json());

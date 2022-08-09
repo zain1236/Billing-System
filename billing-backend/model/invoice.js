@@ -15,28 +15,19 @@ const Invoice = sequelize.define(
       allowNull: true,
     },
 
-    placeofsupply: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
     billing_period: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    forignRate: {
+    // it will be not on client side form
+    subtotal: {
       type: DataTypes.BIGINT,
       allowNull: true,
     },
 
-    company_id: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-    },
-    customer_id: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
+    foreign_currency: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

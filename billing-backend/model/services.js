@@ -24,10 +24,6 @@ const Service = sequelize.define(
       type: DataTypes.BIGINT,
       allowNull: false,
     },
-    company_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
   },
   {
     tableName: "service",

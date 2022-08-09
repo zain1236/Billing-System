@@ -2,23 +2,23 @@ const { sequelize, Sequelize } = require("../config/db");
 
 const DataTypes = Sequelize;
 
-const Invoice = sequelize.define(
-  "invoiceService",
+const InvoiceTax = sequelize.define(
+  "InvoiceTax",
   {
-    rate: {
-      type: DataTypes.BIGINT,
+    name: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
 
-    forignRate: {
+    tax_percentage: {
       type: DataTypes.BIGINT,
       allowNull: false,
     },
   },
   {
-    tableName: "invoiceService",
+    tableName: "InvoiceTax",
     paranoid: true,
   }
 );
 
-module.exports = Invoice;
+module.exports = InvoiceTax;

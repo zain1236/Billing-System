@@ -79,7 +79,7 @@ const NewService = () => {
               placeholder="HSN/SAC - 99319"
               name="HSN_SAC"
               id="HSN_SAC"
-              className="rounded-sm p-1 border-none outline-none ml-2"
+              className="rounded-sm p-1 border-none outline-none ml-2 text-white font-medium"
               required
               disabled
             />

@@ -55,7 +55,7 @@ const NewCustomer = () => {
           onSubmit={handleSubmit}
           className="m-10 flex flex-col justify-center items-center"
         >
-          <label for="custType"> Customer Type </label>
+          <label for="custType" className="text-white"> Customer Type </label>
           <select
             name="custType"
             id="custType"
@@ -139,7 +139,7 @@ const NewCustomer = () => {
           {/* <!-- //optional --> */}
 
           <div className="mt-3">
-            <label for="GST_treatement">GST treatment</label>
+            <label for="GST_treatement" className="text-white">GST treatment</label>
             <select
               name="GST_treatement"
               id="GST_treatement"
@@ -217,7 +217,7 @@ const NewCustomer = () => {
               }
             />
           </div>
-          <button className="mt-10 bg-indigo-500 hover:bg-indigo-600 px-5 py-3 rounded-md text-white">
+          <button className=" btn border-none mt-10 bg-indigo-500 hover:bg-indigo-600 px-5 py-3 rounded-md text-white">
             SUBMIT
           </button>
         </form>

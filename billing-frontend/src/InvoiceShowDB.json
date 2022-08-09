@@ -1,0 +1,27 @@
+{
+    "id": 1,
+    "invoiceNo": 1,
+    "Header": "IT Service",
+    "foreign_rate": null,
+    "Customer": {
+        "name": "zain",
+        "placeofsupply": "India",
+        "country": "India",
+        "state": "punjab",
+        "city": "Delhi",
+        "zipcode": "50034",
+        "GST_IN": "KK8YDNA7D866D",
+        "pan": "LLDA887DJ4Sj"
+    },
+    "invoice_service": {
+        "service": [
+            {
+                "name": "Cleaning Matts",
+                "rate": 900,
+                "HSN_SAC": 99319
+            }
+        ]
+    },
+    "subtotal": 0,
+    "company": {}
+}
