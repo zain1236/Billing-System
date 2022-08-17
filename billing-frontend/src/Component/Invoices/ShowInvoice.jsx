@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import logo from "../../Assets/Honcho+Logo+-+Black.png";
-import signature from "../../Assets/signature-logo-encapsulated-postscript-png-favpng-PuMqwT3aQ9YstVUNAPwJnGJw0.jpg";
 import { ToWords } from "to-words";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -70,7 +68,7 @@ const ShowInvoice = () => {
 
           <div className=" flex w-full p-3 min-h-[100px] border-[3px] items-end">
             <img
-              src={logo}
+              src={`${process.env.REACT_APP_BASE_URL}${invoiceData?.company?.logo}`}
               alt=""
               className="h-[100px] w-[100px] object-contain"
             />
@@ -78,9 +76,9 @@ const ShowInvoice = () => {
             <div className="flex flex-col ml-3 items-start ">
               <span className="text-2xl font-bold">Honcho Metrics</span>
               <span className="">{`Best Sky tower, 704, Netaji Subhash Place, Pitam Pura`}</span>
-              <span className="">{`New Delhi Delhi 110034 India`}</span>
-              <span className="uppercase">{`GSIN ${invoiceData?.customer?.GST_IN}`}</span>
-              <span className="uppercase">{`PAN ${invoiceData?.customer?.pan}`}</span>
+              <span className="">{`${invoiceData?.company?.city} ${invoiceData?.company?.state} ${invoiceData?.company?.pinCode} ${invoiceData?.company?.country}`}</span>
+              <span className="uppercase">{`GSIN ${invoiceData?.company?.gst}`}</span>
+              <span className="uppercase">{`PAN ${invoiceData?.company?.pan}`}</span>
             </div>
 
             {invoiceTax?.length > 0 && (
@@ -193,33 +191,42 @@ const ShowInvoice = () => {
                     <td>{i + 1}</td>
                     <td className="capitalize">{serv?.service.name}</td>
                     <td>99238</td>
-                    {serv?.forignRate && <td>{serv?.forignRate}</td>}
+                    {serv?.forignRate && <td>{serv?.forignRate.toFixed(2)}</td>}
                     <td> {serv?.rate}.00</td>
 
                     {invoiceTax.length && invoiceTax[0]?.name === "CGST" ? (
                       <>
                         <td> {invoiceTax[0].tax_percentage}</td>
                         <td>
-                          {(+serv?.rate / 100) * +invoiceTax[0].tax_percentage}
+                          {(
+                            (+serv?.rate / 100) *
+                            +invoiceTax[0].tax_percentage
+                          ).toFixed(2)}
                         </td>
                         <td> {invoiceTax[0].tax_percentage}</td>
                         <td>
                           {" "}
-                          {(+serv?.rate / 100) * +invoiceTax[0].tax_percentage}
+                          {(
+                            (+serv?.rate / 100) *
+                            +invoiceTax[0].tax_percentage
+                          ).toFixed(2)}
                         </td>
                       </>
                     ) : invoiceTax[0]?.name === "IGST" ? (
                       <>
                         <td> {invoiceTax[0].tax_percentage} </td>
                         <td>
-                          {(+serv?.rate / 100) * +invoiceTax[0].tax_percentage}
+                          {(
+                            (+serv?.rate / 100) *
+                            +invoiceTax[0].tax_percentage
+                          ).toFixed(2)}
                         </td>
                       </>
                     ) : (
                       ""
                     )}
 
-                    <td> {serv?.rate}.00 </td>
+                    <td> {serv?.rate.toFixed(2)} </td>
                   </tr>
                 ))}
               </tbody>
@@ -281,12 +288,16 @@ const ShowInvoice = () => {
                       <div className="flex w-full">
                         CGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
-                        <span className="ml-auto">{TotalTax}</span>{" "}
+                        <span className="ml-auto">
+                          {TotalTax.toFixed(2)}
+                        </span>{" "}
                       </div>
                       <div className="flex w-full">
                         SGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
-                        <span className="ml-auto">{TotalTax}</span>{" "}
+                        <span className="ml-auto">
+                          {TotalTax.toFixed(2)}
+                        </span>{" "}
                       </div>
                     </>
                   ) : invoiceTax && invoiceTax[0]?.name === "IGST" ? (
@@ -294,7 +305,9 @@ const ShowInvoice = () => {
                       <div className="flex w-full">
                         IGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
-                        <span className="ml-auto">{TotalTax}</span>{" "}
+                        <span className="ml-auto">
+                          {TotalTax.toFixed(2)}
+                        </span>{" "}
                       </div>
                     </>
                   ) : (
@@ -305,8 +318,8 @@ const ShowInvoice = () => {
                     Total
                     <span className="ml-auto">
                       {invoiceTax?.length
-                        ? invoiceData?.invoice?.subtotal + TotalTax
-                        : invoiceData?.invoice?.subtotal}
+                        ? (invoiceData?.invoice?.subtotal + TotalTax).toFixed(2)
+                        : invoiceData?.invoice?.subtota.toFixed(2)}
                     </span>{" "}
                   </div>
 
@@ -314,14 +327,21 @@ const ShowInvoice = () => {
                     Balance Due
                     <span className="ml-auto">
                       {invoiceTax?.length
-                        ? invoiceData?.invoice?.subtotal + TotalTax
-                        : invoiceData?.invoice?.subtotal}
+                        ?( invoiceData?.invoice?.subtotal + TotalTax).toFixed(2)
+                        : (invoiceData?.invoice?.subtotal.toFixed(2))}
                     </span>{" "}
                   </div>
                 </div>
               </div>
               <div className="flex-1 border-t-2 flex flex-col p-4 ">
-                <img src={signature} alt="" className="w-full h-[200px]" />
+                <img
+                  src={
+                    `${process.env.REACT_APP_BASE_URL}` +
+                    invoiceData?.company?.signature
+                  }
+                  alt=""
+                  className="w-full h-[200px]"
+                />
                 <span className="mt-auto">Authorized Signature</span>
               </div>
             </div>

@@ -51,15 +51,15 @@ const AllInvoices = () => {
                 <td className="text-center"> {inv.foreign_currency}</td>
                 <td className="text-center">{inv.billing_period}</td>
                 <td className="text-center">{inv.subtotal}</td>
-                <td className="text-center">{inv.createdAt.slice(0,10)}</td>
+                <td className="text-center">{inv.createdAt.slice(0, 10)}</td>
 
                 <td className="flex justify-center text-center">
-                  {/* <Link
+                  <Link
                     className="bg-slate-400 p-1 rounded-sm text-white mr-2"
-                    to={`/customer/${inv.id}`}
+                    to={`/invoice/showInvoice/${inv.id}`}
                   >
-                    Edit
-                  </Link> */}
+                    View
+                  </Link>
 
                   <button
                     className="bg-slate-400 p-1 rounded-sm text-white"
