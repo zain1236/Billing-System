@@ -191,7 +191,9 @@ const ShowInvoice = () => {
                     <td>{i + 1}</td>
                     <td className="capitalize">{serv?.service.name}</td>
                     <td>99238</td>
-                    {serv?.forignRate && <td>{serv?.forignRate.toFixed(2)}</td>}
+                    {serv?.forignRate && (
+                      <td>{serv?.forignRate?.toFixed(2)}</td>
+                    )}
                     <td> {serv?.rate}.00</td>
 
                     {invoiceTax.length && invoiceTax[0]?.name === "CGST" ? (
@@ -201,7 +203,7 @@ const ShowInvoice = () => {
                           {(
                             (+serv?.rate / 100) *
                             +invoiceTax[0].tax_percentage
-                          ).toFixed(2)}
+                          )?.toFixed(2)}
                         </td>
                         <td> {invoiceTax[0].tax_percentage}</td>
                         <td>
@@ -209,7 +211,7 @@ const ShowInvoice = () => {
                           {(
                             (+serv?.rate / 100) *
                             +invoiceTax[0].tax_percentage
-                          ).toFixed(2)}
+                          )?.toFixed(2)}
                         </td>
                       </>
                     ) : invoiceTax[0]?.name === "IGST" ? (
@@ -219,14 +221,14 @@ const ShowInvoice = () => {
                           {(
                             (+serv?.rate / 100) *
                             +invoiceTax[0].tax_percentage
-                          ).toFixed(2)}
+                          )?.toFixed(2)}
                         </td>
                       </>
                     ) : (
                       ""
                     )}
 
-                    <td> {serv?.rate.toFixed(2)} </td>
+                    <td> {serv?.rate?.toFixed(2)} </td>
                   </tr>
                 ))}
               </tbody>
@@ -289,14 +291,14 @@ const ShowInvoice = () => {
                         CGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
                         <span className="ml-auto">
-                          {TotalTax.toFixed(2)}
+                          {TotalTax?.toFixed(2)}
                         </span>{" "}
                       </div>
                       <div className="flex w-full">
                         SGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
                         <span className="ml-auto">
-                          {TotalTax.toFixed(2)}
+                          {TotalTax?.toFixed(2)}
                         </span>{" "}
                       </div>
                     </>
@@ -306,7 +308,7 @@ const ShowInvoice = () => {
                         IGST{invoiceTax[0]?.tax_percentage} (
                         {invoiceTax[0]?.tax_percentage}%)
                         <span className="ml-auto">
-                          {TotalTax.toFixed(2)}
+                          {TotalTax?.toFixed(2)}
                         </span>{" "}
                       </div>
                     </>
@@ -318,8 +320,10 @@ const ShowInvoice = () => {
                     Total
                     <span className="ml-auto">
                       {invoiceTax?.length
-                        ? (invoiceData?.invoice?.subtotal + TotalTax).toFixed(2)
-                        : invoiceData?.invoice?.subtota.toFixed(2)}
+                        ? (invoiceData?.invoice?.subtotal + TotalTax)?.toFixed(
+                            2
+                          )
+                        : invoiceData?.invoice?.subtotal?.toFixed(2)}
                     </span>{" "}
                   </div>
 
@@ -327,8 +331,10 @@ const ShowInvoice = () => {
                     Balance Due
                     <span className="ml-auto">
                       {invoiceTax?.length
-                        ?( invoiceData?.invoice?.subtotal + TotalTax).toFixed(2)
-                        : (invoiceData?.invoice?.subtotal.toFixed(2))}
+                        ? (invoiceData?.invoice?.subtotal + TotalTax)?.toFixed(
+                            2
+                          )
+                        : invoiceData?.invoice?.subtotal?.toFixed(2)}
                     </span>{" "}
                   </div>
                 </div>

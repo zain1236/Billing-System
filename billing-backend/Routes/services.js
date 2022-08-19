@@ -32,7 +32,7 @@ router
   .post(async (req, res) => {
     try {
       const servData = req.body;
-      servData.companyId = 1;
+      // servData.companyId = 1;
       const services = await Service.create(req.body);
       if (services < 1) {
         res.send({ Message: "Something went Wrong!", status: 200 });

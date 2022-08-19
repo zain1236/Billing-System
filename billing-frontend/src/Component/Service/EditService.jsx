@@ -16,6 +16,7 @@ const EditService = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    service.companyId = localStorage.getItem("company");
 
     console.log(service);
     axios
@@ -53,7 +54,6 @@ const EditService = () => {
 
           <div className="mt-3">
             <textarea
-              required
               name="description"
               placeholder="Description"
               id="description"
@@ -86,7 +86,7 @@ const EditService = () => {
             </label>
             <input
               type="text"
-              placeholder="HSN/SAC - 99319"
+              placeholder="HSN/SAC - 998319"
               name="HSN_SAC"
               id="HSN_SAC"
               className="rounded-sm p-1 border-none outline-none ml-2"

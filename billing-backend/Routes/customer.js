@@ -30,7 +30,7 @@ router
       } else {
         custdata.placeofsupply = custdata.country;
       }
-      custdata.companyId = 1;
+      // custdata.companyId = 1;
       const customer = await Customer.create(custdata);
       if (customer < 1) {
         res.send({ Message: "Something went Wrong", status: 200 });
@@ -69,7 +69,7 @@ router
       } else {
         custdata.placeofsupply = custdata.country;
       }
-      custdata.company = 1;
+      // custdata.companyId = 1;
 
       const { id } = req.params;
       const customer = await Customer.update(custdata, { where: { id: id } });

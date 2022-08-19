@@ -11,6 +11,7 @@ import EditService from "./Component/Service/EditService";
 import ShowInvoice from "./Component/Invoices/ShowInvoice";
 import Test from "./Component/Test/Test";
 import AllInvoices from "./Component/Invoices/AllInvoices";
+import Company from "./Component/Company/Company";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <Header />
 
       <Routes>
+        <Route path="/" index element={<Company />} />
+
         <Route path="/customer" element={<AllCustomer />} />
         <Route path="/customer/newCustomer" element={<NewCustomer />} />
         <Route path="/customer/:id" element={<EditCustomer />} />

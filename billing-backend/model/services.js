@@ -13,7 +13,7 @@ const Service = sequelize.define(
     HSN_SAC: {
       type: DataTypes.BIGINT,
       allowNull: true,
-      defaultValue: 99319,
+      defaultValue: 998319,
     },
 
     description: {

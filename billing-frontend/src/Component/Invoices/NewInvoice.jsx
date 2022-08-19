@@ -40,7 +40,12 @@ const NewInvoice = () => {
 
       id += 1;
     }
-    const data = { ...values, services, subtotal, company: 1 };
+    const data = {
+      ...values,
+      services,
+      subtotal,
+      companyId: localStorage.getItem("company"),
+    };
 
     axios.post(`${process.env.REACT_APP_BASE_URL}invoice`, data).then((d) => {
       navigate(`/invoice/showInvoice/${d.data.data.id}`);

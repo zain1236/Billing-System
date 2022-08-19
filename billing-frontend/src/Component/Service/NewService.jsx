@@ -8,7 +8,8 @@ const NewService = () => {
     name: "",
     description: "",
     rate: 0,
-    HSN_SAC: 99319,
+    HSN_SAC: 998319,
+    company: localStorage.getItem("company"),
   });
 
   const handleSubmit = (e) => {
@@ -44,7 +45,6 @@ const NewService = () => {
 
           <div className="mt-3">
             <textarea
-              required
               name="description"
               placeholder="Description"
               id="description"
@@ -75,12 +75,11 @@ const NewService = () => {
             </label>
             <input
               type="text"
-              value="99319"
+              value="998319"
               placeholder="HSN/SAC - 99319"
               name="HSN_SAC"
               id="HSN_SAC"
               className="rounded-sm p-1 border-none outline-none ml-2 text-white font-medium"
-              required
               disabled
             />
           </div>

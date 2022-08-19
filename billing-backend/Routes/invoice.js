@@ -34,7 +34,7 @@ router
         subtotal,
         foreign_currency,
         total_tax,
-        company, // foreign key
+        companyId, // foreign key
         customer, // foreign key
         services, // array of services { rate,foreignRate,service_Id  }
       } = req.body;
@@ -50,7 +50,7 @@ router
         subtotal,
         foreign_currency,
         total_tax,
-        companyId: company,
+        companyId: companyId,
         customerId: customer,
       });
 
@@ -65,7 +65,7 @@ router
         await InvoiceService.bulkCreate(services);
 
         const foundCustomer = await Customer.findOne({
-          where: { id: +customer },
+          where: { id: customer },
         });
 
         const ifIndia = [
